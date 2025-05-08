@@ -14,6 +14,9 @@ product_list = [
 # Creating product_manager instance
 product_manager = ProductManager(product_list)
 
+product_manager.product_removal("Computer")
+product_manager.display_products()
+
 # Adding new products to the product_list
 while True:
     try:
@@ -28,4 +31,5 @@ product_manager.display_products()
 
 # Printing total inventory
 product_manager.total_inventory()
+
 

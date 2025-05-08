@@ -23,6 +23,10 @@ class ProductManager ():
             total_inventory += p.quantity
         print(f"Total inventory is {total_inventory}")
         
+    def product_removal (self, product):
+        for p in self.product_list:
+            if p.name == product:
+                self.product_list.remove(p)
         
     
     
