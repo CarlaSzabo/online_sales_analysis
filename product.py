@@ -12,8 +12,8 @@ class Product ():
 
 # Method that updates the quantity of the products    
     def quantity_actualization(self, new_quantity):
-        try:
-            new_quantity / 2 and new_quantity > 0
-            self.quantity = new_quantity
-        except:
-            print("The quantity introduced has to be a number higher than 0.")
+            try:
+                new_quantity / 2 and new_quantity > 0
+                self.quantity = new_quantity
+            except:
+                print("Please introduce a number quantity higher than 0")

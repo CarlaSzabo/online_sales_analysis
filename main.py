@@ -1,6 +1,7 @@
 
 import product
 from product_manager import ProductManager
+from cart import Cart
 
 # Creating product_list with objects
 product_list = [
@@ -14,8 +15,32 @@ product_list = [
 # Creating product_manager instance
 product_manager = ProductManager(product_list)
 
-product_manager.product_removal("Computer")
-product_manager.display_products()
+# Creating cart instance
+cart = Cart([])
+
+#Checking if the product from the cart is the same as one of our products from product list
+new_product = input("Please insert desired product in your cart: ")
+cart_list = []
+while new_product:
+    find_check = False
+    if new_product in cart_list:
+            find_check = True
+            cart.quantity_update(new_product)
+    else:
+        for p in product_list:
+            if new_product == p.name:
+                find_check = True
+                cart_list.append(new_product)
+                cart.add_products(product.Product(p.name, p.price, p.quantity - p.quantity + 1))
+    if find_check == False:
+        new_product = input(f"Please insert one of the products from our products: ")
+    new_product = input("Please insert desired product in your cart: ")
+
+# Display the items of the cart
+cart.display_products()
+
+# Printing the total of the cart
+cart.total_inventory()
 
 # Adding new products to the product_list
 while True:
